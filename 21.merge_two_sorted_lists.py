@@ -1,3 +1,4 @@
+## My code
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -13,30 +14,70 @@ class Solution:
             return l1 if l2 is None else l2
 
         isEmpty = True
-        node = ListNode()
+        head = ListNode()
         while True:
-            if l1.next is None and l2.next is None:
+            if l1 is None and l2 is None:
                 break
             if isEmpty:
                 if l1.val >= l2.val:
-                    node.val = l2.val
+                    head.val = l2.val
                     l2 = l2.next
                 else:
-                    node.val = l1.val
+                    head.val = l1.val
                     l1 = l1.next
                 isEmpty = False
 
-            if l1.val >= l2.val:
-                next_node = ListNode(l2.val)
-                node.next = next_node
-                node = next_node
-                l2 = l2.next
+            node = head
+            if l1 is not None and l2 is not None:
+                if l1.val >= l2.val:
+                    next_node = ListNode(l2.val)
+                    while node.next != None:
+                        node = node.next
+                    node.next = next_node
+                    l2 = l2.next
+                else:
+                    next_node = ListNode(l1.val)
+                    while node.next != None:
+                        node = node.next
+                    node.next = next_node
+                    l1 = l1.next
             else:
-                next_node = ListNode(l1.val)
-                node.next = next_node
-                node = next_node
+                if l1 is None:
+                    next_node = ListNode(l2.val)
+                    while node.next != None:
+                        node = node.next
+                    node.next = next_node
+                    l2 = l2.next
+                else:
+                    if l2 is None:
+                        next_node = ListNode(l1.val)
+                        while node.next != None:
+                            node = node.next
+                        node.next = next_node
+                        l1 = l1.next
+        return head
+
+## Solution: https://leetcode.com/problems/merge-two-sorted-lists/discuss/1062675/Iterative-and-Recursive-with-Easy-Explanation
+class Solution2:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        dummy = ListNode()
+        cur = dummy
+
+        while l1 and l2:
+            if l1.val < l2.val:
+                cur.next = l1
                 l1 = l1.next
-        return node
+            else:
+                cur.next = l2
+                l2 = l2.next
+            cur = cur.next
+
+        if l1:
+            cur.next = l1
+        elif l2:
+            cur.next = l2
+
+        return dummy.next
 
 if __name__ == "__main__":
     # Input: l1 = [1,2,4], l2 = [1,3,4]
@@ -44,6 +85,6 @@ if __name__ == "__main__":
 
     list1 = ListNode(1, ListNode(2, ListNode(4)))
     list2 = ListNode(1, ListNode(3, ListNode(4)))
-    sol = Solution()
+    sol = Solution2()
     output = sol.mergeTwoLists(list1, list2)
     a=1
