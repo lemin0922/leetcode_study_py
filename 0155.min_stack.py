@@ -1,3 +1,9 @@
+"""
+- Result -
+Runtime: 48 ms, faster than 99.26% of Python3 online submissions for Min Stack.
+Memory Usage: 17.9 MB, less than 86.57% of Python3 online submissions for Min Stack.
+"""
+
 class MinStack:
 
     def __init__(self):

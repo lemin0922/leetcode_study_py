@@ -1,3 +1,9 @@
+"""
+- Result -
+Runtime: 48 ms, faster than 13.19% of Python3 online submissions for Merge Two Sorted Lists.
+Memory Usage: 14.5 MB, less than 33.73% of Python3 online submissions for Merge Two Sorted Lists.
+"""
+
 ## My code
 # Definition for singly-linked list.
 class ListNode:

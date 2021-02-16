@@ -1,3 +1,8 @@
+"""
+- Result -
+Runtime: 36 ms, faster than 43.71% of Python3 online submissions for Reverse Integer.
+Memory Usage: 14.1 MB, less than 75.49% of Python3 online submissions for Reverse Integer.
+"""
 class Solution:
     MAX_VALUE = 2147483647
     MIN_VALUE = -2147483648

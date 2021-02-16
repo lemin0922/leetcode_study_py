@@ -1,3 +1,8 @@
+"""
+- Result -
+Runtime: 52 ms, faster than 61.07% of Python3 online submissions for Balanced Binary Tree.
+Memory Usage: 18.8 MB, less than 54.75% of Python3 online submissions for Balanced Binary Tree.
+"""
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
